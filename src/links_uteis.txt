@@ -1,0 +1,1 @@
+https://attacomsian.com/blog/spring-data-jpa-many-to-many-mapping
