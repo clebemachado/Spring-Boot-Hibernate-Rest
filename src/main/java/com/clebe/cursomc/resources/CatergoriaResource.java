@@ -1,6 +1,10 @@
 package com.clebe.cursomc.resources;
 
 import com.clebe.cursomc.domain.Categoria;
+import com.clebe.cursomc.services.CategoriaService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,15 +16,13 @@ import java.util.List;
 @RequestMapping(value="/categorias")
 public class CatergoriaResource {
 
-    @RequestMapping(method = RequestMethod.GET)
-    public List<Categoria> listar(){
-        Categoria c1 = new Categoria(1, "Informatica");
-        Categoria c2 = new Categoria(2, "Escritório");
-        List<Categoria> categoriaList = new ArrayList<>();
-        categoriaList.add(c1);
-        categoriaList.add(c2);
+    @Autowired
+    private CategoriaService service;
 
-     return categoriaList;
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public ResponseEntity<?> find(@PathVariable Integer id){
+        Categoria obj = service.find(id);
+        return ResponseEntity.ok().body(obj);
     }
 
 }
