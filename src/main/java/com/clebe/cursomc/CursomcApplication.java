@@ -1,10 +1,18 @@
 package com.clebe.cursomc;
 
+import com.clebe.cursomc.domain.Categoria;
+import com.clebe.cursomc.repositories.CategoriaRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.Arrays;
+
 @SpringBootApplication
-public class CursomcApplication {
+public class CursomcApplication implements CommandLineRunner {
+	@Autowired
+	private CategoriaRepository repo ;
 
 	public static void main(String[] args) {
 
@@ -12,4 +20,13 @@ public class CursomcApplication {
 
 	}
 
+
+	@Override
+	public void run(String... args) throws Exception {
+		Categoria cat1 = new Categoria(null, "Informática");
+		Categoria cat2 = new Categoria(null, "Escritório");
+
+		repo.saveAll(Arrays.asList(cat1, cat2));
+
+	}
 }
