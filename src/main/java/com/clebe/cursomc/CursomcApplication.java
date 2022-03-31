@@ -9,7 +9,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 @SpringBootApplication
@@ -21,7 +20,7 @@ public class CursomcApplication implements CommandLineRunner {
 	private ProdutoRepository produtoRepository;
 
 	public static void main(String[] args) {
-
+		// Parei na aula 17
 		SpringApplication.run(CursomcApplication.class, args);
 
 	}

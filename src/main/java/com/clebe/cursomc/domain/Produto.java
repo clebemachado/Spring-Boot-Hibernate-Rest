@@ -1,10 +1,14 @@
 package com.clebe.cursomc.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "categorias"})
 
 @Entity
 public class Produto implements Serializable {
@@ -17,7 +21,7 @@ public class Produto implements Serializable {
 
     private String nome;
     private double price;
-
+    @JsonBackReference
     @JoinTable(name="PRODUTO_CATEGORIA",
             joinColumns = @JoinColumn(name = "produto_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "categoria_id", referencedColumnName = "id")
