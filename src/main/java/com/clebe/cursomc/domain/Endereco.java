@@ -1,15 +1,15 @@
 package com.clebe.cursomc.domain;
 
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
+@Entity
 public class Endereco implements Serializable {
 
     static final Long SerialVersionUID = 1L;
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String logradouro;
     private String numero;
@@ -17,8 +17,13 @@ public class Endereco implements Serializable {
     private String bairro;
     private String cep;
 
+    @ManyToOne
+    @JoinColumn(name = "cliente_id"
+    )
     private Cliente cliente;
 
+    @ManyToOne
+    @JoinColumn(name = "cidade_id")
     private Cidade cidade;
 
     public Endereco(){}
