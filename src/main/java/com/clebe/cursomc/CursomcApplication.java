@@ -60,39 +60,39 @@ public class CursomcApplication implements CommandLineRunner {
 //
 //		categoriaRepository.saveAll(Arrays.asList(cat1, cat2));
 //		produtoRepository.saveAll(Arrays.asList(prod1, prod2, prod3));
-
-		Estado est1 = new Estado(null, "Minas Gerais");
-		Estado est2 = new Estado(null, "São Paulo");
-
-
-		Cidade cid1 = new Cidade(null, "Urbelandia", est1);
-		Cidade cid2 = new Cidade(null, "São Paulo", est2);
-		Cidade cid3 = new Cidade(null, "Campinas", est2);
-
-		est1.setCidades(Collections.singletonList(cid1));
-		est2.setCidades(Arrays.asList(cid2, cid3));
-
-		estadoRepository.saveAll(Arrays.asList(est1, est2));
-		cidadeRepository.saveAll(Arrays.asList(cid1, cid2, cid3));
-
-		Cliente cli1 = new Cliente(null, "Maria Silva",
-				"maria@gmail.com", "36378912377",
-				TipoCliente.PESSOAFISICA);
-		cli1.getTelefones().addAll(Arrays.asList("27363323", "93838393"));
-
-
-		Endereco e1 = new Endereco(null, "Rua Flores",
-				"300", "Apto 203", "Jardim",
-				"382208374", cli1, cid1);
-
-		Endereco e2 = new Endereco(null, "Avenida Matos",
-				"105", "Sala 800", "Centro",
-				"38777012", cli1, cid2);
-
-		cli1.setEnderecoList(Arrays.asList(e1, e2));
-
-		clienteRepository.save(cli1);
-		enderecoRepository.saveAll(Arrays.asList(e1, e2));
+//
+//		Estado est1 = new Estado(null, "Minas Gerais");
+//		Estado est2 = new Estado(null, "São Paulo");
+//
+//
+//		Cidade cid1 = new Cidade(null, "Urbelandia", est1);
+//		Cidade cid2 = new Cidade(null, "São Paulo", est2);
+//		Cidade cid3 = new Cidade(null, "Campinas", est2);
+//
+//		est1.setCidades(Collections.singletonList(cid1));
+//		est2.setCidades(Arrays.asList(cid2, cid3));
+//
+//		estadoRepository.saveAll(Arrays.asList(est1, est2));
+//		cidadeRepository.saveAll(Arrays.asList(cid1, cid2, cid3));
+//
+//		Cliente cli1 = new Cliente(null, "Maria Silva",
+//				"maria@gmail.com", "36378912377",
+//				TipoCliente.PESSOAFISICA);
+//		cli1.getTelefones().addAll(Arrays.asList("27363323", "93838393"));
+//
+//
+//		Endereco e1 = new Endereco(null, "Rua Flores",
+//				"300", "Apto 203", "Jardim",
+//				"382208374", cli1, cid1);
+//
+//		Endereco e2 = new Endereco(null, "Avenida Matos",
+//				"105", "Sala 800", "Centro",
+//				"38777012", cli1, cid2);
+//
+//		cli1.setEnderecoList(Arrays.asList(e1, e2));
+//
+//		clienteRepository.save(cli1);
+//		enderecoRepository.saveAll(Arrays.asList(e1, e2));
 
 	}
 }
